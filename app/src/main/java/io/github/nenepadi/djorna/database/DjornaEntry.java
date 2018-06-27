@@ -15,30 +15,38 @@ public class DjornaEntry {
     @ColumnInfo(name = "id")
     private int mId;
 
-    @NonNull
     @ColumnInfo(name = "title")
     private String mTitle;
 
-    @NonNull
     @ColumnInfo(name = "detail")
     private String mDetails;
 
-    @NonNull
+    @ColumnInfo(name = "email")
+    private String mEmail;
+
+    // Draft => 1, Saved => 2
+    @ColumnInfo(name = "status")
+    private int mStatus;
+
     @ColumnInfo(name = "penned_date")
     private Date mDate;
 
     @Ignore
-    public DjornaEntry(String title, String details, Date date){
+    public DjornaEntry(String title, String details, String email, int status, @NonNull Date date){
         this.mTitle = title;
         this.mDetails = details;
         this.mDate = date;
+        this.mEmail = email;
+        this.mStatus = status;
     }
 
-    public DjornaEntry(int id, String title, String details, Date date){
+    public DjornaEntry(int id, String title, String details, String email, int status, @NonNull Date date){
         this.mId = id;
         this.mTitle = title;
         this.mDetails = details;
         this.mDate = date;
+        this.mEmail = email;
+        this.mStatus = status;
     }
 
     public int getId() {
@@ -61,7 +69,7 @@ public class DjornaEntry {
         return mDate;
     }
 
-    public void setDate(Date date) {
+    public void setDate(@NonNull Date date) {
         this.mDate = date;
     }
 
@@ -71,5 +79,21 @@ public class DjornaEntry {
 
     public void setDetails(String mDetails) {
         this.mDetails = mDetails;
+    }
+
+    public String getEmail() {
+        return mEmail;
+    }
+
+    public void setEmail(String mEmail) {
+        this.mEmail = mEmail;
+    }
+
+    public int getStatus() {
+        return mStatus;
+    }
+
+    public void setStatus(int mStatus) {
+        this.mStatus = mStatus;
     }
 }

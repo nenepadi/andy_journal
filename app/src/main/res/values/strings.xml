@@ -2,4 +2,10 @@
     <string name="app_name">Djorna</string>
     <string name="server_client_id">431402172509-9dc5lgchlgcienm4qdklr8kabbc9uetk.apps.googleusercontent.com</string>
     <string name="detailed_logo">Detailed Logo</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="short_month">JUL</string>
+    <string name="day_of_week">Saturday</string>
+    <string name="date_of_month">10</string>
+    <string name="year">2018</string>
+    <string name="entry_detail">Lorem ipsumbnmajsmndsanmn nsjakndkjnasbmd sajhdmsak sakjdmjs</string>
 </resources>
