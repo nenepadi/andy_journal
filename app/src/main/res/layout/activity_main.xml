@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:paddingBottom="80dp"
-        android:id="@+id/rv_entries" />
+        android:id="@+id/rv_entries"/>
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"

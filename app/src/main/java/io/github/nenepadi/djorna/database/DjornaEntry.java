@@ -4,7 +4,6 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
-import android.support.annotation.NonNull;
 
 import java.util.Date;
 
@@ -15,10 +14,7 @@ public class DjornaEntry {
     @ColumnInfo(name = "id")
     private int mId;
 
-    @ColumnInfo(name = "title")
-    private String mTitle;
-
-    @ColumnInfo(name = "detail")
+    @ColumnInfo(name = "details")
     private String mDetails;
 
     @ColumnInfo(name = "email")
@@ -28,25 +24,23 @@ public class DjornaEntry {
     @ColumnInfo(name = "status")
     private int mStatus;
 
-    @ColumnInfo(name = "penned_date")
-    private Date mDate;
+    @ColumnInfo(name = "created_at")
+    private Date createdAt;
 
     @Ignore
-    public DjornaEntry(String title, String details, String email, int status, @NonNull Date date){
-        this.mTitle = title;
+    public DjornaEntry(String details, String email, int status, Date createdAt){
         this.mDetails = details;
-        this.mDate = date;
         this.mEmail = email;
         this.mStatus = status;
+        this.createdAt = createdAt;
     }
 
-    public DjornaEntry(int id, String title, String details, String email, int status, @NonNull Date date){
+    public DjornaEntry(int id, String details, String email, int status, Date createdAt){
         this.mId = id;
-        this.mTitle = title;
         this.mDetails = details;
-        this.mDate = date;
         this.mEmail = email;
         this.mStatus = status;
+        this.createdAt = createdAt;
     }
 
     public int getId() {
@@ -55,22 +49,6 @@ public class DjornaEntry {
 
     public void setId(int id) {
         this.mId = id;
-    }
-
-    public String getTitle() {
-        return mTitle;
-    }
-
-    public void setTitle(String title) {
-        this.mTitle = title;
-    }
-
-    public Date getDate() {
-        return mDate;
-    }
-
-    public void setDate(@NonNull Date date) {
-        this.mDate = date;
     }
 
     public String getDetails() {
@@ -85,8 +63,8 @@ public class DjornaEntry {
         return mEmail;
     }
 
-    public void setEmail(String mEmail) {
-        this.mEmail = mEmail;
+    public void setEmail(String email) {
+        this.mEmail = email;
     }
 
     public int getStatus() {
@@ -95,5 +73,13 @@ public class DjornaEntry {
 
     public void setStatus(int mStatus) {
         this.mStatus = mStatus;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }

@@ -1,5 +1,6 @@
 package io.github.nenepadi.djorna;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import io.github.nenepadi.djorna.database.DjornaEntry;
@@ -15,6 +19,7 @@ import io.github.nenepadi.djorna.database.DjornaEntry;
 public class DjornaEntryAdapter extends RecyclerView.Adapter<DjornaEntryAdapter.DjornaViewHolder> {
     private LayoutInflater layoutInflater;
     private List<DjornaEntry> mEntries;
+    private SimpleDateFormat mDateFormat;
 
     DjornaEntryAdapter(Context context){
         layoutInflater = LayoutInflater.from(context);
@@ -27,11 +32,25 @@ public class DjornaEntryAdapter extends RecyclerView.Adapter<DjornaEntryAdapter.
         return new DjornaViewHolder(itemView);
     }
 
+    @SuppressLint({"SimpleDateFormat", "DefaultLocale"})
     @Override
     public void onBindViewHolder(@NonNull DjornaViewHolder holder, int position) {
         if(mEntries != null){
             DjornaEntry current = mEntries.get(position);
-            // TODO: Populate the views here ...
+            Date createdAt = current.getCreatedAt();
+
+            mDateFormat = new SimpleDateFormat("EEEE");
+            holder.tvDayOfWeek.setText(mDateFormat.format(createdAt).toUpperCase());
+
+            mDateFormat = new SimpleDateFormat("MMM");
+            holder.tvShortMonth.setText(mDateFormat.format(createdAt).toUpperCase());
+
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(createdAt);
+            holder.tvDateOfMonth.setText(String.format("%d", cal.get(Calendar.DAY_OF_MONTH)));
+            holder.tvYear.setText(String.format("%d", cal.get(Calendar.YEAR)));
+
+            holder.tvEntryDetail.setText(current.getDetails());
         }
     }
 

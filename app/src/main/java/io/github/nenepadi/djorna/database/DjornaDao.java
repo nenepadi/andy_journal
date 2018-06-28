@@ -12,7 +12,7 @@ import java.util.List;
 
 @Dao
 public interface DjornaDao {
-    @Query("SELECT * FROM entry ORDER BY penned_date DESC")
+    @Query("SELECT * FROM entry ORDER BY created_at DESC")
     LiveData<List<DjornaEntry>> findAllEntries();
 
     @Query("SELECT * FROM entry WHERE id = :id")
@@ -26,4 +26,8 @@ public interface DjornaDao {
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     void updateEntry(DjornaEntry entry);
+
+    // Using it for a test .. will remove soon ...
+    @Query("DELETE FROM entry")
+    void deleteAll();
 }
