@@ -25,7 +25,6 @@ public abstract class DjornaDatabase extends RoomDatabase {
                 if(INSTANCE == null){
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             DjornaDatabase.class, "djorna_db")
-
                             // Use this to check database ...
                             // .addCallback(sRoomDbaseCb)
                             .build();

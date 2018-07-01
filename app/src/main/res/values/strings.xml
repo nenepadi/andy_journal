@@ -7,5 +7,16 @@
     <string name="day_of_week">Saturday</string>
     <string name="date_of_month">10</string>
     <string name="year">2018</string>
-    <string name="entry_detail">Lorem ipsumbnmajsmndsanmn nsjakndkjnasbmd sajhdmsak sakjdmjs</string>
+    <string name="entry_detail">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ligula diam, posuere sit amet ultrices sit amet, ultricies at magna. Phasellus et tellus facilisis, finibus neque in, suscipit urna. Nullam suscipit ligula et felis tristique imperdiet. Phasellus dignissim elementum lectus non scelerisque. Suspendisse egestas felis diam, quis placerat magna varius vitae. Sed a laoreet sem, vitae luctus mauris. Vestibulum quis euismod felis. Pellentesque fringilla lectus eu elit lobortis semper. Quisque congue tempor est, eu ultricies ex finibus quis. Praesent sed maximus diam. Ut laoreet tortor eu purus tincidunt elementum.
+
+        Aenean condimentum, dolor ac suscipit consequat, lacus urna placerat dui, at vulputate odio ligula in justo. Integer finibus urna elit, id consequat est ornare ultrices. Nunc laoreet commodo ligula vitae tincidunt. Morbi blandit nulla gravida, placerat nisi lacinia, rhoncus tellus. Maecenas id aliquam tortor. Aenean sit amet ligula velit. Quisque cursus quam neque, non laoreet ante accumsan sed. Curabitur in neque ac arcu suscipit tincidunt vestibulum eu leo. Sed tempus ipsum vitae elit efficitur, vel aliquet lacus malesuada. Nam tincidunt, turpis sed imperdiet ultrices, sem mauris egestas risus, ut cursus ipsum ex sed sapien. Phasellus ultrices sapien odio. In hac habitasse platea dictumst. Morbi et purus nisi. Vivamus condimentum tortor lobortis venenatis consequat. Cras nec laoreet sem.
+    </string>
+    <string name="month_year">June 2018</string>
+    <string name="time_am_pm">09:00 p.m.</string>
+    <string name="entry_hint">Enter and experience</string>
+    <string name="save_btn_txt">Save Entry</string>
+    <string name="save_btn_draft">Save as Draft</string>
+    <string name="logout">Logout</string>
+    <string name="detail_app_bar_title">How I %1$s on %2$s @ %3$s</string>
 </resources>

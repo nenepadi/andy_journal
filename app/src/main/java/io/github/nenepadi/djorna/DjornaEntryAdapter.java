@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -19,10 +18,11 @@ import io.github.nenepadi.djorna.database.DjornaEntry;
 public class DjornaEntryAdapter extends RecyclerView.Adapter<DjornaEntryAdapter.DjornaViewHolder> {
     private LayoutInflater layoutInflater;
     private List<DjornaEntry> mEntries;
-    private SimpleDateFormat mDateFormat;
+    final private ItemClickListener mListener;
 
-    DjornaEntryAdapter(Context context){
+    DjornaEntryAdapter(Context context, ItemClickListener itemClickListener){
         layoutInflater = LayoutInflater.from(context);
+        mListener = itemClickListener;
     }
 
     @NonNull
@@ -32,24 +32,16 @@ public class DjornaEntryAdapter extends RecyclerView.Adapter<DjornaEntryAdapter.
         return new DjornaViewHolder(itemView);
     }
 
-    @SuppressLint({"SimpleDateFormat", "DefaultLocale"})
     @Override
     public void onBindViewHolder(@NonNull DjornaViewHolder holder, int position) {
         if(mEntries != null){
             DjornaEntry current = mEntries.get(position);
             Date createdAt = current.getCreatedAt();
 
-            mDateFormat = new SimpleDateFormat("EEEE");
-            holder.tvDayOfWeek.setText(mDateFormat.format(createdAt).toUpperCase());
-
-            mDateFormat = new SimpleDateFormat("MMM");
-            holder.tvShortMonth.setText(mDateFormat.format(createdAt).toUpperCase());
-
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(createdAt);
-            holder.tvDateOfMonth.setText(String.format("%d", cal.get(Calendar.DAY_OF_MONTH)));
-            holder.tvYear.setText(String.format("%d", cal.get(Calendar.YEAR)));
-
+            holder.tvDayOfWeek.setText(formatter("EEEE").format(createdAt).toUpperCase());
+            holder.tvShortMonth.setText(formatter("MMM").format(createdAt).toUpperCase());
+            holder.tvDateOfMonth.setText(formatter("dd").format(createdAt));
+            holder.tvYear.setText(formatter("yyyy").format(createdAt));
             holder.tvEntryDetail.setText(current.getDetails());
         }
     }
@@ -68,7 +60,16 @@ public class DjornaEntryAdapter extends RecyclerView.Adapter<DjornaEntryAdapter.
         }
     }
 
-    class DjornaViewHolder extends RecyclerView.ViewHolder {
+    @SuppressLint("SimpleDateFormat")
+    private SimpleDateFormat formatter(String pattern){
+        return new SimpleDateFormat(pattern);
+    }
+
+    public interface ItemClickListener{
+        void onItemClickLister(int itemId);
+    }
+
+    class DjornaViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private final TextView tvDateOfMonth;
         private final TextView tvDayOfWeek;
         private final TextView tvShortMonth;
@@ -83,6 +84,13 @@ public class DjornaEntryAdapter extends RecyclerView.Adapter<DjornaEntryAdapter.
             tvShortMonth = itemView.findViewById(R.id.tv_short_month);
             tvYear = itemView.findViewById(R.id.tv_year);
             tvEntryDetail = itemView.findViewById(R.id.tv_entry_detail);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int id = mEntries.get(getAdapterPosition()).getId();
+            mListener.onItemClickLister(id);
         }
     }
 }

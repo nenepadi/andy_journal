@@ -24,6 +24,10 @@ public class DjornaEntry {
     @ColumnInfo(name = "status")
     private int mStatus;
 
+    // @Nullable
+    // @ColumnInfo(name = "image_path")
+    // private String mImagePath;
+
     @ColumnInfo(name = "created_at")
     private Date createdAt;
 
@@ -33,9 +37,10 @@ public class DjornaEntry {
         this.mEmail = email;
         this.mStatus = status;
         this.createdAt = createdAt;
+        // this.mImagePath = image;
     }
 
-    public DjornaEntry(int id, String details, String email, int status, Date createdAt){
+    DjornaEntry(int id, String details, String email, int status, Date createdAt){
         this.mId = id;
         this.mDetails = details;
         this.mEmail = email;
@@ -82,4 +87,5 @@ public class DjornaEntry {
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
+
 }

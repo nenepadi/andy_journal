@@ -12,8 +12,11 @@ import java.util.List;
 
 @Dao
 public interface DjornaDao {
-    @Query("SELECT * FROM entry ORDER BY created_at DESC")
-    LiveData<List<DjornaEntry>> findAllEntries();
+    /*@Query("SELECT * FROM entry ORDER BY created_at DESC")
+    LiveData<List<DjornaEntry>> findAllEntries();*/
+
+    @Query("SELECT * FROM entry WHERE email = :email ORDER BY created_at DESC")
+    LiveData<List<DjornaEntry>> findEntriesByUser(String email);
 
     @Query("SELECT * FROM entry WHERE id = :id")
     LiveData<DjornaEntry> findEntryById(int id);

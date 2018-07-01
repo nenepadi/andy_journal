@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateEntryActivity"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_date_of_month"
+                android:text="@string/date_of_month"
+                android:textStyle="bold"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+                android:textSize="50sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/day_of_week"
+                    android:paddingTop="12dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="16sp"
+                    android:id="@+id/tv_day_of_week"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/month_year"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="16sp"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+                    android:id="@+id/tv_month_and_year"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/time_am_pm"
+            android:paddingTop="12dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/tv_time_am_pm"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+            tools:ignore="RelativeOverlap" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_entry_editor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:inputType="textCapSentences|textMultiLine"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+        android:hint="@string/entry_hint"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="18sp"
+        android:textColorHighlight="@color/colorPrimaryLight" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:layout_height="wrap_content"
+            android:text="@string/save_btn_draft"
+            android:background="@drawable/button_background"
+            android:textColor="@color/colorTextIcons"
+            android:id="@+id/btn_draft"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp" />
+
+        <Button
+            android:layout_height="wrap_content"
+            android:text="@string/save_btn_txt"
+            android:background="@drawable/button_background"
+            android:textColor="@color/colorTextIcons"
+            android:id="@+id/btn_save"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

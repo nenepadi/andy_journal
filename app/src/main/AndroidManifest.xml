@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="io.github.nenepadi.djorna">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -28,9 +29,12 @@
             android:name=".MainActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".CreateEntryActivity"
+            android:label="Create New Entry" />
+
+        <activity android:name=".DetailsActivity"
+            android:label="@string/detail_app_bar_title"
+            tools:targetApi="jelly_bean" />
     </application>
 
 </manifest>
